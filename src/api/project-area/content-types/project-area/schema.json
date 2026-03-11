@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_areas",
+  "info": {
+    "singularName": "project-area",
+    "pluralName": "project-areas",
+    "displayName": "ProjectArea"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "areas"
+    }
+  }
+}
