@@ -15,27 +15,8 @@
     }
   },
   "attributes": {
-    "Title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true
-    },
     "slug": {
       "type": "uid",
-      "targetField": "Title",
-      "required": true
-    },
-    "completionDate": {
-      "type": "date",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "required": true
     },
     "coverImage": {
@@ -54,16 +35,8 @@
         "audios"
       ]
     },
-    "description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "shortDescription": {
-      "type": "text",
+    "title": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -79,8 +52,8 @@
         }
       }
     },
-    "fullDescription": {
-      "type": "blocks",
+    "year": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -95,30 +68,43 @@
         }
       }
     },
-    "duration": {
+    "tipology": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": false
     },
-    "team": {
-      "type": "json",
+    "areas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-area.project-area",
+      "inversedBy": "projects"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-tag.project-tag",
+      "inversedBy": "projects"
+    },
+    "Initiative": {
+      "type": "blocks",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "testimonial": {
+    "sections": {
       "type": "component",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "project.testimonial",
+      "component": "project.project-section",
       "repeatable": true
     },
     "gallery": {
@@ -135,40 +121,6 @@
         "videos",
         "audios"
       ]
-    },
-    "projects": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project.project",
-      "inversedBy": "relatedProjects"
-    },
-    "relatedProjects": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project.project",
-      "mappedBy": "projects"
-    },
-    "tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project-tag.project-tag",
-      "mappedBy": "projects"
-    },
-    "areas": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::project-area.project-area",
-      "inversedBy": "projects"
-    },
-    "sections": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "project.project-section",
-      "repeatable": true
     }
   }
 }
