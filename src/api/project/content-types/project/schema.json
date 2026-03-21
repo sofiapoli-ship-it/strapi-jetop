@@ -15,16 +15,6 @@
       "type": "uid",
       "required": true
     },
-    "headerImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
